@@ -1,23 +1,37 @@
+// Saved schedule items
+var schedule = [];
+
 // Display the current date in the appropriate spot
 $("#currentDay").text(moment().format("dddd, MMMM D"));
-
-// Text paragraph was clicked
-$(".row").on("click", "p", function () {
-    // Get current text
-    let curText = $(this)
-        .text()
-        .trim();
-    
-    // Create new textarea
-    let textarea = $("<textarea>")
-        .val(curText);
-    
-    $(this).replaceWith(textarea);
-
-    textarea.trigger("focus");
-});
+loadSchedule();
 
 // Save button was clicked
 $(".row").on("click", "button", function () {
-    
-})
+    // get index of button
+    let index = $(this)
+        .attr("id")
+        .replace("save-", "");
+
+    let text = $("#text-" + index)
+        .val()
+        .trim();
+
+    schedule[index] = text;
+
+    saveSchedule();
+});
+
+// Load the schedule
+function loadSchedule() {
+    schedule = JSON.parse(localStorage.getItem("schedule"));
+
+    // If nothing in localStorage, create a new array of empty strings
+    if (!schedule) {
+        schedule = ["", "", "", "", "", "", "", "", ""];
+    }
+}
+
+// Save the schedule
+function saveSchedule() {
+    localStorage.setItem("schedule", JSON.stringify(schedule));
+}
