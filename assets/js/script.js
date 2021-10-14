@@ -29,6 +29,11 @@ function loadSchedule() {
     if (!schedule) {
         schedule = ["", "", "", "", "", "", "", "", ""];
     }
+
+    for (let i = 0; i < schedule.length; i++) {
+        const item = schedule[i];
+        $("#text-" + i).val(item.trim());
+    }
 }
 
 // Save the schedule
