@@ -1,12 +1,11 @@
 // Saved schedule items
 var schedule = [];
 
-// Display the current date in the appropriate spot
-$("#currentDay").text(moment().format("dddd, MMMM D"));
-
+// We only care about the time to the current hour
 var currMoment = moment().hour();
 
 loadSchedule();
+updateScheduleDisplay();
 
 // Save button was clicked
 $(".row").on("click", "button", function () {
@@ -55,13 +54,13 @@ function setMoment(time) {
         currMoment = parseInt(time);
     }
 
-    updateSchedule();
+    updateScheduleDisplay();
 }
 
 // Update the schedule display as needed
-function updateSchedule() {
-    // All we care about is the hour
-    let currMomentInt = currMoment;
+function updateScheduleDisplay() {
+    // Display the current date in the appropriate spot
+    $("#currentDay").text(moment().format("dddd, MMMM D"));
 
     // These indexes are stored as id attributes in HTML.
     for (let i = 0; i < 10; i++) {
@@ -74,7 +73,7 @@ function updateSchedule() {
         // Get the hour of the event time
         let eventHour = parseInt(textEl.attr("info-hour"));
 
-        let timeDiff = eventHour - currMomentInt;
+        let timeDiff = eventHour - currMoment;
 
         if (timeDiff < 0) {
             textEl.addClass("past");
