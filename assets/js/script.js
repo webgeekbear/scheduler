@@ -4,7 +4,7 @@ var schedule = [];
 // Display the current date in the appropriate spot
 $("#currentDay").text(moment().format("dddd, MMMM D"));
 
-var currMoment = moment();
+var currMoment = moment().hour();
 
 loadSchedule();
 
@@ -50,19 +50,21 @@ function saveSchedule() {
 // Pass in zero to set the moment to the current time.
 function setMoment(time) {
     if (!time) {
-        currMoment = moment();
+        currMoment = moment().hour();
     } else {
-        currMoment = moment().hour(time);
+        currMoment = parseInt(time);
     }
+
+    updateSchedule();
 }
 
 // Update the schedule display as needed
 function updateSchedule() {
     // All we care about is the hour
-    let currMomentInt = currMoment.hour();
+    let currMomentInt = currMoment;
 
     // These indexes are stored as id attributes in HTML.
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 10; i++) {
         // Get the text element for the event time
         let textEl = $("#text-" + i);
 
