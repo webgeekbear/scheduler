@@ -84,3 +84,12 @@ function updateScheduleDisplay() {
         }
     }
 }
+
+// Redisplay schedule whenever hour changes
+setInterval(function () {
+    // The hour changes when the number of minutes is zero
+    if (!moment().minutes()) {
+        currMoment = moment().hour();
+        updateScheduleDisplay();
+    }
+}, 60 * 1000); // Trigger every minute
