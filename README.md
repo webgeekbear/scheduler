@@ -5,4 +5,6 @@ A simple calendar app for scheduling your work day.
 JavaScript, JQuery, Moment.js, HTML, Bootstrap, CSS
 
 ## Deployment
-Deployed at 
+Deployed at https://webgeekbear.github.io/scheduler/
+
+
