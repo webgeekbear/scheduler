@@ -1,1 +1,8 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
+A simple calendar app for scheduling your work day.
+
+## Technologies Used
+JavaScript, JQuery, Moment.js, HTML, Bootstrap, CSS
+
+## Deployment
+Deployed at 
