@@ -7,4 +7,5 @@ JavaScript, JQuery, Moment.js, HTML, Bootstrap, CSS
 ## Deployment
 Deployed at https://webgeekbear.github.io/scheduler/
 
-
+## Screenshot
+![screenshot](./assets/images/scheduler.png)
