@@ -63,7 +63,7 @@ function updateScheduleDisplay() {
     $("#currentDay").text(moment().format("dddd, MMMM D"));
 
     // These indexes are stored as id attributes in HTML.
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 9; i++) {
         // Get the text element for the event time
         let textEl = $("#text-" + i);
 
