@@ -47,7 +47,7 @@ function saveSchedule() {
 // Pass in a value from 1 to 23 to allow for testing of the past, present, and 
 // future display in the schedule. 
 // Pass in zero to set the moment to the current time.
-function setMoment(time) {
+function setHour(time) {
     if (!time) {
         currMoment = moment().hour();
     } else {
